@@ -20,12 +20,13 @@ pipeline {
                     }
             }
         }
-
         stage('Deploy') {
             steps {
-                echo 'Deploy stage: Deploying the application'
-                sh 'scp main.py git@github.com:GuyShemesh66/-Checkmarx_Assignment_deploy.git' // Simulating deployment to a remote server (https://github.com/GuyShemesh66/-Checkmarx_Assignment_deploy.git)
-            }
+                echo 'Deploy stage: Clone the program into local file'
+                sh 'mkdir tested_program'
+                sh 'cd /tested_program'
+                sh 'curl -O https://raw.githubusercontent.com/GuyShemesh66/Checkmarx_Home_Assignment/main/main.py'
+           }
         }
     }
 

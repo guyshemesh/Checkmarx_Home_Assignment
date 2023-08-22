@@ -12,4 +12,4 @@ The code in tests.py checks if our program's return is equal to what we want.
 If our program returns an error, we set currentBuild.result to 'FAILURE' and at the end of the file we return 'Pipeline failed: Tests not passed.'.
 
 Deploy stage  -
-If all our testing completes and succeeds, we'll clone our program (main.py) using the 'scp' command to git@github.com:GuyShemesh66/-Checkmarx_Assignment_deploy.git.
+If all our testing completes and succeeds, we'll clone our program(main.py) from https://github.com/GuyShemesh66/Checkmarx_Home_Assignment.git into a new local file named "tested_program" to make sure that the program is updated ,ready to work on and passes all the tests.
