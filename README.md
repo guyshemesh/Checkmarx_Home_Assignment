@@ -8,7 +8,7 @@ This is why we use 'pip install -r requirements.txt'
 In requirements.txt written 'numpy==1.21.0' - we will install this version of the numpy library because this is what the running environment need to run our program.
 
 Test stage -
-We run 'python -m unittest tests.py'.
+We command 'python -m unittest tests.py'.
 The code in tests.py checks if our program's return is equal to what we want.
 If our program returns an error, we set currentBuild.result to 'FAILURE' and at the end of the file we return 'Pipeline failed: Tests not passed.'.
 
