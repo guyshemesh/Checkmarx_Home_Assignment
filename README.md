@@ -1,16 +1,16 @@
 # Checkmarx_Home_Assignment
 
-the program - using numpy library and then and then return "Hello World!"
+Our program is using the numpy library and then returning "Hello World!"
 
 Build stage -
-in this stage we will set up the running environment by install the relevant version of the python libraries to make sure that our program has the right environment to run.
-this is why we use 'pip install -r requirements.txt'
-In requirements.txt written 'numpy==1.21.0'- we will install this version of numpy library because that's what require to run our program.
+In this step we will set up the runtime environment by installing the relevant version of the python libraries to make sure our software has the correct environment to run.
+This is why we use 'pip install -r requirements.txt'
+In requirements.txt written 'numpy==1.21.0' - we will install this version of the numpy library because this is what the running environment need to run our program.
 
 Test stage -
-we run 'python -m unittest tests.py'.
-the code in tests.py is checking if the return of our program is equal to what we want.
-if the our program return is a mistake, we set  currentBuild.result  as 'FAILURE' and at the end of the file we return 'Pipeline failed: Tests did not pass.'.
+We run 'python -m unittest tests.py'.
+The code in tests.py checks if our program's return is equal to what we want.
+If our program returns an error, we set currentBuild.result to 'FAILURE' and at the end of the file we return 'Pipeline failed: Tests not passed.'.
 
 Deploy stage  -
-if all our  test finish and succeed , we will clone our program(main.py) by using the command 'scp' to git@github.com:GuyShemesh66/-Checkmarx_Assignment_deploy.git.
+If all our testing completes and succeeds, we'll clone our program(main.py) from https://github.com/GuyShemesh66/Checkmarx_Home_Assignment.git into a new local file named "tested_program" to make sure that the program is updated ,ready to work on and passes all the previous tests.
