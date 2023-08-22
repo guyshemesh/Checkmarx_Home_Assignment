@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Deploy stage: Clone the program into local file'
                 sh 'mkdir tested_program'
-                sh 'cd /tested_program'
+                sh 'cd tested_program'
                 sh 'curl -O https://raw.githubusercontent.com/GuyShemesh66/Checkmarx_Home_Assignment/main/main.py'
            }
         }
