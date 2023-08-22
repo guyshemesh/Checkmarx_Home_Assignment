@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
@@ -18,6 +17,7 @@ pipeline {
                         currentBuild.result = 'FAILURE'
                         error('Tests failed.')
                     }
+                }
             }
         }
         stage('Deploy') {
