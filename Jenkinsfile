@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build stage: Setting up environment'
-                sh 'pip install -r requirements.txt' // if we have libraries(numpy) we need to install for running our program
+                sh 'pip install -r requirements.txt'
             }
         }
 
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Test stage: Running tests'
                 script {
-                    def testExitCode = sh script: 'python -m unittest tests.py', returnStatus: true  // check if the return string of our program is equal to "Hello World!"
+                    def testExitCode = sh script: 'python -m unittest tests.py', returnStatus: true
                     if (testExitCode != 0) {
                         currentBuild.result = 'FAILURE'
                         error('Tests failed.')
@@ -20,19 +20,23 @@ pipeline {
                 }
             }
         }
+
         stage('Deploy') {
             steps {
-                echo 'Deploy stage: Clone the program into local file'
+                echo 'Deploy stage: Cloning the program into local directory'
                 sh 'mkdir tested_program'
                 sh 'cd tested_program'
-                sh 'curl -O https://raw.githubusercontent.com/GuyShemesh66/Checkmarx_Home_Assignment/main/main.py'
-           }
+                sh 'curl -o main.py https://raw.githubusercontent.com/GuyShemesh66/Checkmarx_Home_Assignment/main/main.py'
+            }
         }
     }
 
     post {
         failure {
             echo 'Pipeline failed: Tests did not pass.'
+        }
+        success {
+            echo 'Pipeline succeeded: Tests passed and deployment completed.'
         }
     }
 }
